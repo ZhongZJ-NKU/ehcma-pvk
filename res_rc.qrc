@@ -1,0 +1,47 @@
+<RCC>
+  <qresource prefix="/">
+    <file>icons/dl.svg</file>
+    <file>icons/analysis.svg</file>
+    <file>icons/mol_calc.svg</file>
+    <file>icons/ml.svg</file>
+    <file>icons/prediction.svg</file>
+    <file>icons/data_display.svg</file>
+    <file>icons/logout.svg</file>
+    <file>icons/logo.png</file>
+    <file>icons/turn_to.svg</file>
+    <file>icons/analyse.svg</file>
+    <file>icons/back.svg</file>
+    <file>icons/show.svg</file>
+    <file>icons/minimize.svg</file>
+    <file>icons/up_arrow.svg</file>
+    <file>icons/down_arrow.svg</file>
+    <file>icons/check.svg</file>
+    <file>icons/reasoning.svg</file>
+    <file>icons/setting.svg</file>
+    <file>icons/send.svg</file>
+    <file>icons/clear.svg</file>
+    <file>icons/stop.svg</file>
+    <file>icons/start.svg</file>
+    <file>icons/reasoning_process.svg</file>
+    <file>icons/nku_logo.png</file>
+    <file>icons/process.svg</file>
+    <file>icons/usage.svg</file>
+    <file>icons/state.svg</file>
+    <file>icons/state_normal.svg</file>
+    <file>icons/state_error.svg</file>
+    <file>icons/state_unknown.svg</file>
+    <file>icons/state_warning.svg</file>
+    <file>icons/folders.svg</file>
+    <file>icons/new_chat.svg</file>
+    <file>icons/more.svg</file>
+    <file>icons/window.svg</file>
+    <file>icons/window.png</file>
+    <file>icons/import.svg</file>
+    <file>icons/export.svg</file>
+    <file>icons/clear_text.svg</file>
+    <file>icons/lib.svg</file>
+    <file>icons/close.svg</file>
+    <file>icons/save.svg</file>
+    <file>icons/save_as.svg</file>
+  </qresource>
+</RCC>
