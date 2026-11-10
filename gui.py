@@ -2254,14 +2254,15 @@ class MainWindow(QMainWindow):
         self.agent_process = None
         self.is_agent_reply_finished = False
 
-        self.txt_agent_api_key = self._find_child_widget(QPlainTextEdit, "txt_agent_api_key")
-        self.txt_agent_api_key.setPlainText(
-            "sk-ws-H.PMDPMML.KJ59.MEUCIQCmXbQGKysMNF_Tw63RINGTT8TJYc-HjfkLnkcJKALvEgIgaPz-sGfwfo7xkR7Plt7GQ1YkdPPqBarIQwo-5HWpxos"
+        self.txt_agent_api_key = self._bind_agent_text_field(
+            "txt_agent_api_key", "AGENT_API_KEY", "Please enter Agent API Key"
         )
-        self.txt_agent_base_url = self._find_child_widget(QPlainTextEdit, "txt_agent_base_url")
-        self.txt_agent_base_url.setPlainText("https://maas.qianwenaiapi.com/compatible-mode/v1")
-        self.txt_agent_model_name = self._find_child_widget(QPlainTextEdit, "txt_agent_model_name")
-        self.txt_agent_model_name.setPlainText("qwen3.8-flash")
+        self.txt_agent_base_url = self._bind_agent_text_field(
+            "txt_agent_base_url", "AGENT_BASE_URL", "Enter Agent base URL"
+        )
+        self.txt_agent_model_name = self._bind_agent_text_field(
+            "txt_agent_model_name", "AGENT_MODEL_NAME", "Enter model"
+        )
 
         self.dsp_agent_temperature = self._find_child_widget(
             QDoubleSpinBox, "dsp_agent_temperature"
@@ -6040,6 +6041,16 @@ class MainWindow(QMainWindow):
             return None
         if widget is None:
             print(f"WARNING: Cannot find child widget: {name}.")
+        return widget
+
+    def _bind_agent_text_field(self, widget_name: str, env_var: str, placeholder: str) -> QPlainTextEdit:
+        """Seed a named agent text field from 'env_var' and apply its placeholder."""
+        widget = self._find_child_widget(QPlainTextEdit, widget_name)
+        if widget is None:
+            raise RuntimeError(f"UI widget not found: {widget_name}")
+        widget.setPlainText(os.getenv(env_var, "").strip())
+        widget.setPlaceholderText(placeholder)
+        widget.setLineWrapMode(QPlainTextEdit.NoWrap)
         return widget
 
     @staticmethod
