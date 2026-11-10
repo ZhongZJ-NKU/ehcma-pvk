@@ -366,13 +366,7 @@ class AutoML:
     # ------------------------------------------------------------------
 
     def model_eval_save(self, name, model, params_best=None):
-        """Compute metrics for 'model', stream them, and pickle the model.
-
-        The test predictions are cached once: five separate
-        'model.predict(x_test)' calls used to run per model.  Only
-        test-set metrics are stored; 'r2_train' is never written anywhere
-        and is dropped here to avoid an extra ``predict(x_train)``.
-        """
+        """Compute metrics for 'model', stream them, and pickle the model."""
         y_pred_test = model.predict(self.x_test)
         mse = mean_squared_error(self.y_test, y_pred_test)
         rmse = np.sqrt(mse)
@@ -442,12 +436,7 @@ class AutoML:
         return optzr.max["params"]
 
     def _cv_objective(self, cls, map_raw, cv_kwargs):
-        """Build the 5-fold CV objective for one model class.
-
-        The estimator that BayesianOptimization scores is
-        'cls(**map_raw(raw), **cv_kwargs)'; 'cv_kwargs' carries the
-        fixed constructor arguments that should not be searched.
-        """
+        """Build the 5-fold CV objective for one model class."""
         def objective(**raw):
             estimator = cls(**map_raw(raw), **cv_kwargs)
             return cross_val_score(

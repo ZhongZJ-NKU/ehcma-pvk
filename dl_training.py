@@ -1,13 +1,39 @@
-# =============================================================================
-# dl_training.py
-# =============================================================================
 """ACIN: Adaptive Cross-Modal Interaction Network for Co-SAM PCE regression.
 
-Bit-for-bit reproducible against the reference implementation: attribute
-names in ``ACIN`` and their creation order are frozen (they determine how
-the RNG is consumed during ``__init__``), the datasets build the same
-tensors, and the optimiser / scheduler / loss / DataLoader configuration
-is unchanged.  Only RNG-free side effects were added or renamed.
+Input:
+    x_train, y_train, x_test, y_test -- DataFrame / Series; first 35 columns
+                                        are handcrafted physicochemical
+                                        descriptors, the remaining 4860 are
+                                        Klekota-Roth substructure bits.
+    device                            -- ``"cuda"`` or ``"cpu"``.
+    lr, epoch, batch_size, dropout    -- optimization schedule.
+    early_stop_threshold              -- epochs without val-loss improvement;
+                                        ``0`` disables early stopping.
+    resume                            -- if True and a checkpoint exists at
+                                        ``<base_dir>/dl_models/ACIN_checkpoint.pth``,
+                                        restore model/optimizer/scheduler/best
+                                        state and continue from the next epoch.
+    checkpoint_interval               -- save a full checkpoint every N epochs
+                                        in addition to every best epoch; set
+                                        ``0`` for best-only saves.
+    queue                             -- optional; receives one of:
+                                            int             epoch index
+                                            DataFrame       [R2, MSE, MAE, Loss]
+                                            "_end_"         normal / early stop
+                                            "_error_<msg>"  training crashed
+    base_dir                          -- root for ``dl_models/``.
+
+Output:
+    ACINTraining() -> (acin_weights_df, model_path)
+        acin_weights_df : DataFrame[krfp_idx, weights], 4860 rows;
+                               ``weights`` is the batch-averaged substructure
+                               score ∈ [-1, 1] under the best model.
+        model_path           : <base_dir>/dl_models/ACIN.pth.
+        Side effect          : writes ``acin_weights.csv`` in the CWD on
+                               every best epoch.
+
+    BL_MLP_training() -> (None, model_path)
+        model_path           : <base_dir>/dl_models/mlp.pth.
 """
 
 import os
@@ -23,7 +49,7 @@ from torch.optim.lr_scheduler import CosineAnnealingLR
 from torch.utils.data import Dataset, DataLoader
 
 
-ATTN_WEIGHTS_FILE = "attention_weights.csv"
+ATTN_WEIGHTS_FILE = "acin_weights.csv"
 ACIN_CKPT = "ACIN_checkpoint.pth"
 MLP_CKPT = "mlp_checkpoint.pth"
 
@@ -32,7 +58,7 @@ _LOG_BAR = "─" * _LOG_WIDTH
 
 
 # ---------------------------------------------------------------------------
-# Datasets (unchanged from the reference implementation)
+# Datasets
 # ---------------------------------------------------------------------------
 
 class TrainDataset(Dataset):
@@ -110,28 +136,7 @@ class BL_MLP_TestDataset(Dataset):
 # ---------------------------------------------------------------------------
 
 class ACIN(nn.Module):
-    """Adaptive Cross-Modal Interaction Network.
-
-    Given a molecule's handcrafted physicochemical descriptors
-    (HOMO / LUMO / TPSA / ...), the network computes a *score* for each
-    of the 4860 Klekota-Roth substructure bits:
-
-        score > 0  -> keep (and amplify) the substructure
-        score < 0  -> suppress the substructure
-        |score|    -> strength of the modulation
-
-    A feedback path also lets the substructure context refine the
-    descriptor representation before scoring.
-
-    .. note::
-
-        Attribute names (``attn_projector`` / ``norm1`` / ``norm2`` /
-        ``norm3`` / ``fb_modulator`` / ``mlp_regressor`` / ``pred_output``)
-        and their creation order are frozen.  They determine how the RNG
-        is consumed during ``__init__`` and therefore fix the initial
-        weights under a given seed; renaming or reordering changes training
-        bit-for-bit and breaks loading of existing ``ACIN.pth`` files.
-    """
+    """Adaptive Cross-Modal Interaction Network."""
 
     def __init__(self, feat_dim, mol_dim, drop_rate, hidden_layer=None):
         super(ACIN, self).__init__()
@@ -156,7 +161,7 @@ class ACIN(nn.Module):
 
         self.norm1 = nn.LayerNorm(mol_dim)   # KRFP normalisation
         self.norm2 = nn.LayerNorm(feat_dim)  # physchem normalisation
-        self.norm3 = nn.LayerNorm(mol_dim)   # fused normalisation
+        self.norm3 = nn.LayerNorm(mol_dim)   # fused normalization
 
         # Feedback Modulator: substructure context -> physchem space.
         self.fb_modulator = nn.Sequential(
@@ -209,7 +214,7 @@ class ACIN(nn.Module):
         krfp_bits = krfp_bits.squeeze().squeeze()
         physchem_feats = physchem_feats.squeeze().squeeze()
 
-        # ---- 1. Normalise both modalities ----
+        # ---- 1. Normalize both modalities ----
         norm_substructures = self.norm1(krfp_bits)
         norm_feats = self.norm2(physchem_feats)
 
@@ -394,7 +399,7 @@ def _metrics(y_true, y_pred):
 
 
 def _save_attn_weights(scores, path=ATTN_WEIGHTS_FILE):
-    """Persist ``attention_weights.csv``; no-op when ``scores`` is None."""
+    """Persist ``acin_weights.csv``; no-op when ``scores`` is None."""
     if scores is None:
         return
     df = pd.DataFrame(scores)

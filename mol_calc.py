@@ -167,13 +167,7 @@ def _parse_homo_lumo(path):
 
 
 def get_homo_lumo(file_path, file_name):
-    """Extract HOMO and LUMO energies (eV) from a Molden file via Multiwfn.
-
-    Multiwfn opens a GUI window after printing the orbital table, so the
-    process is polled at 0.5 s intervals and terminated as soon as both
-    sections have appeared.  Hard ceiling is 150 s (matching the original
-    timeout) and the window is closed unconditionally on exit.
-    """
+    """Extract HOMO and LUMO energies (eV) from a Molden file via Multiwfn."""
     with open(f"{file_path}/multiwfn_cmd.txt", "w") as f:
         f.write("0\n")
 

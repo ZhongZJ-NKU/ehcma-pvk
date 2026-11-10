@@ -20,8 +20,6 @@ Output:
     run_pipeline() -> {"status", "vlm_raw_observation",
                        "valid_evidence_after_hierarchy_checker",
                        "analysis_result"}.
-    Messages on ``q``: Think / Reply / _PROGR / _Init / _End / _Error_
-        (prefix is the channel; suffix is the payload).
 """
 
 import base64
@@ -391,13 +389,7 @@ CRITICAL: You MUST output the line "---JSON---" exactly, on its own line, after 
     # ------------------------------------------------------------------
 
     def _base_kwargs(self) -> Dict[str, Any]:
-        """Common kwargs for 'responses.create'.
-
-        'max_output_tokens' is only present when 'self.max_tokens' is a
-        positive integer.  Omitting the key lets the provider use its own
-        default; passing 'None' would be sent verbatim and rejected by
-        most back-ends.
-        """
+        """Common kwargs for 'responses.create'."""
         kwargs: Dict[str, Any] = {
             "model": self.model_name,
             "temperature": self.temperature,
@@ -408,12 +400,7 @@ CRITICAL: You MUST output the line "---JSON---" exactly, on its own line, after 
 
     @staticmethod
     def _extract_text(resp) -> str:
-        """Robustly pull text from a Responses object.
-
-        'resp.output_text' is the SDK convenience aggregator; some
-        third-party providers populate 'resp.output[*].content[*].text'
-        but leave the aggregator empty.
-        """
+        """Robustly pull text from a Responses object."""
         text = getattr(resp, "output_text", None)
         if text:
             return text
@@ -532,15 +519,7 @@ CRITICAL: You MUST output the line "---JSON---" exactly, on its own line, after 
         progress_thinking: Optional[float] = None,
         progress_answer: Optional[float] = None,
     ) -> Tuple[str, str, bool]:
-        """Consume a streaming Responses object.
-
-        Sends 'Think' / 'Reply' / '_PROGR' messages as events arrive.
-        Returns '(raw_reasoning, raw_output, stopped)'.
-
-        Detects 'response.incomplete' events and emits a truncation
-        warning (via '_emit_truncation_warning') once the stream is done;
-        partial output is preserved so downstream parsing still works.
-        """
+        """Consume a streaming Responses object."""
         raw_reasoning = ""
         raw_output = ""
         text_wrap_count = 0
@@ -925,13 +904,7 @@ CRITICAL: You MUST output the line "---JSON---" exactly, on its own line, after 
         shap_descriptor_text: str,
         shap_dependence_observations: List[Dict[str, Any]],
     ) -> Dict[str, Any]:
-        """Run the CoT pass; streams the Markdown report before the JSON.
-
-        If the provider truncates the reply ('incomplete_details.reason ==
-        "max_output_tokens"'), a warning is emitted through the GUI queue
-        by '_stream_response'; the partial Markdown still lands in
-        'human_readable_summary' and the JSON block may be 'None'.
-        """
+        """Run the CoT pass; streams the Markdown report before the JSON."""
         resp = None
         try:
             dictionary_str = json.dumps(self.DESCRIPTOR_DICTIONARY, indent=2, ensure_ascii=False)

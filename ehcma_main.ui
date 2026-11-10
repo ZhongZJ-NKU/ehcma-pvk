@@ -669,9 +669,7 @@ border-radius:18px;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -680,7 +678,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                    
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -706,7 +704,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -736,7 +733,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -754,7 +750,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -828,8 +823,7 @@ QTextEdit QScrollBar::sub-page:horizontal
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
+         <string notr="true">
 QPlainTextEdit,
 QTextEdit
 {
@@ -839,7 +833,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                    
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -865,7 +859,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -895,7 +888,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -913,7 +905,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -1126,16 +1117,15 @@ QPushButton:disabled {
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QLineEdit ==================== */
-QLineEdit
+         <string notr="true">QLineEdit
 {
 	font: 12pt &quot;Arial&quot;;
 	background-color: rgba(66, 79, 104, 1);
-	border: 1px solid transparent;   /* 与 SpinBox 保持一致，避免尺寸跳动 */
+	border: 1px solid transparent; 
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding-left: 0px;             /* 文本左侧留出舒适边距 */
+	padding-left: 0px;            
 	padding-right: 0px;
 	min-height: 20px;
 	selection-background-color: #3478e8;
@@ -1144,7 +1134,7 @@ QLineEdit
 
 QLineEdit:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115); 
 	border: 1px solid #3478e8;
 
 }
@@ -1161,13 +1151,12 @@ QLineEdit:disabled
 	border: 1px solid transparent;
 }
 
-QLineEdit[echoMode=&quot;2&quot;]   /* 密码框也保持一致 */
+QLineEdit[echoMode=&quot;2&quot;] 
 {
 	lineedit-password-character: 9679;
 }
 
 
-/* ==================== QComboBox ==================== */
 QComboBox
 {
 	font: 12pt &quot;Arial&quot;;
@@ -1177,13 +1166,13 @@ QComboBox
 	font-size: 14px;
 	color: rgb(255, 255, 255);
 	padding-left: 10px;
-	padding-right: 0px;            /* 右侧给下拉箭头留空间 */
+	padding-right: 0px;            
 	min-height: 20px;
 }
 
 QComboBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115); 
 	border: 1px solid #3478e8;}
 
 QComboBox:focus
@@ -1198,7 +1187,6 @@ QComboBox:disabled
 	border: 1px solid transparent;
 }
 
-/* 下拉箭头区域（右侧按钮） */
 QComboBox::drop-down
 {
 	subcontrol-origin: padding;
@@ -1220,7 +1208,6 @@ QComboBox::drop-down:pressed
 	background-color: rgb(204, 204, 204);
 }
 
-/* 下拉箭头图标 */
 QComboBox::down-arrow
 {
 	image: url(:/icons/down_arrow.svg);
@@ -1234,7 +1221,6 @@ QComboBox::down-arrow:disabled
 	opacity: 0.4;
 }
 
-/* 可编辑 ComboBox 的文本区 */
 QComboBox QAbstractItemView,
 QComboBox QLineEdit
 {
@@ -1245,7 +1231,6 @@ QComboBox QLineEdit
 	selection-color: #ffffff;
 }
 
-/* 下拉列表弹出框 */
 QComboBox QAbstractItemView
 {
 	background-color: rgba(66, 79, 104, 1);
@@ -1275,7 +1260,7 @@ QComboBox QAbstractItemView::item:selected
 	background-color: #3478e8;
 	color: #ffffff;
 }
-/* ==================== 深色滚动条（与 QPlainTextEdit 统一） ==================== */
+
 QComboBox QScrollBar:vertical {
     width:10px;
     background: rgba(35, 41, 54, 0.35);
@@ -1390,16 +1375,15 @@ QComboBox QScrollBar::add-page:horizontal {
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QLineEdit ==================== */
-QLineEdit
+         <string notr="true">QLineEdit
 {
 	font: 12pt &quot;Arial&quot;;
 	background-color: rgba(66, 79, 104, 1);
-	border: 1px solid transparent;   /* 与 SpinBox 保持一致，避免尺寸跳动 */
+	border: 1px solid transparent; 
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding-left: 0px;             /* 文本左侧留出舒适边距 */
+	padding-left: 0px;            
 	padding-right: 0px;
 	min-height: 20px;
 	selection-background-color: #3478e8;
@@ -1408,7 +1392,7 @@ QLineEdit
 
 QLineEdit:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115); 
 	border: 1px solid #3478e8;
 
 }
@@ -1425,13 +1409,12 @@ QLineEdit:disabled
 	border: 1px solid transparent;
 }
 
-QLineEdit[echoMode=&quot;2&quot;]   /* 密码框也保持一致 */
+QLineEdit[echoMode=&quot;2&quot;] 
 {
 	lineedit-password-character: 9679;
 }
 
 
-/* ==================== QComboBox ==================== */
 QComboBox
 {
 	font: 12pt &quot;Arial&quot;;
@@ -1441,13 +1424,13 @@ QComboBox
 	font-size: 14px;
 	color: rgb(255, 255, 255);
 	padding-left: 10px;
-	padding-right: 0px;            /* 右侧给下拉箭头留空间 */
+	padding-right: 0px;            
 	min-height: 20px;
 }
 
 QComboBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115); 
 	border: 1px solid #3478e8;}
 
 QComboBox:focus
@@ -1462,7 +1445,6 @@ QComboBox:disabled
 	border: 1px solid transparent;
 }
 
-/* 下拉箭头区域（右侧按钮） */
 QComboBox::drop-down
 {
 	subcontrol-origin: padding;
@@ -1484,7 +1466,6 @@ QComboBox::drop-down:pressed
 	background-color: rgb(204, 204, 204);
 }
 
-/* 下拉箭头图标 */
 QComboBox::down-arrow
 {
 	image: url(:/icons/down_arrow.svg);
@@ -1498,7 +1479,6 @@ QComboBox::down-arrow:disabled
 	opacity: 0.4;
 }
 
-/* 可编辑 ComboBox 的文本区 */
 QComboBox QAbstractItemView,
 QComboBox QLineEdit
 {
@@ -1509,7 +1489,6 @@ QComboBox QLineEdit
 	selection-color: #ffffff;
 }
 
-/* 下拉列表弹出框 */
 QComboBox QAbstractItemView
 {
 	background-color: rgba(66, 79, 104, 1);
@@ -1539,7 +1518,7 @@ QComboBox QAbstractItemView::item:selected
 	background-color: #3478e8;
 	color: #ffffff;
 }
-/* ==================== 深色滚动条（与 QPlainTextEdit 统一） ==================== */
+
 QComboBox QScrollBar:vertical {
     width:10px;
     background: rgba(35, 41, 54, 0.35);
@@ -1736,8 +1715,7 @@ QComboBox QScrollBar::add-page:horizontal {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">/* ==================== QTableWidget ==================== */
-QTableWidget
+        <string notr="true">QTableWidget
 {
     background-color: rgba(35, 41, 54, 0.5);
     alternate-background-color: rgba(45, 52, 68, 0.45);
@@ -1774,7 +1752,6 @@ QTableWidget::item:focus
     border: 1px solid #3478e8;
 }
 
-/* ==================== 表头 ==================== */
 QTableWidget QHeaderView
 {
     background-color: transparent;
@@ -1805,7 +1782,6 @@ QHeaderView::section:checked
     color: #ffffff;
 }
 
-/* 左上角那个交叉按钮 */
 QTableCornerButton::section
 {
     background-color: rgba(66, 79, 104, 0.9);
@@ -1813,7 +1789,6 @@ QTableCornerButton::section
     border-top-left-radius: 12px;
 }
 
-/* ==================== 表格内 QLineEdit（编辑时） ==================== */
 QTableWidget QLineEdit
 {
     background-color: rgba(35, 41, 54, 0.9);
@@ -1825,7 +1800,6 @@ QTableWidget QLineEdit
     selection-color: #ffffff;
 }
 
-/* ==================== 表格内 QComboBox（cellWidget 时） ==================== */
 QTableWidget QComboBox
 {
     background-color: rgba(66, 79, 104, 1);
@@ -1849,7 +1823,6 @@ QTableWidget QComboBox::drop-down
     background: transparent;
 }
 
-/* ==================== 表格内 QSpinBox（cellWidget 时） ==================== */
 QTableWidget QSpinBox
 {
     background-color: rgba(66, 79, 104, 1);
@@ -1866,7 +1839,6 @@ QTableWidget QSpinBox:hover
     border: 1px solid #3478e8;
 }
 
-/* ==================== 纵向滚动条（与 QGraphicsView 一致） ==================== */
 QTableWidget QScrollBar:vertical
 {
     width: 10px;
@@ -1906,7 +1878,6 @@ QTableWidget QScrollBar::add-page:vertical
     background: none;
 }
 
-/* ==================== 横向滚动条（与 QGraphicsView 一致） ==================== */
 QTableWidget QScrollBar:horizontal
 {
     height: 10px;
@@ -1946,7 +1917,6 @@ QTableWidget QScrollBar::add-page:horizontal
     background: none;
 }
 
-/* ==================== 滚动条交叉角 ==================== */
 QTableWidget QScrollBar::corner
 {
     background: rgba(35, 41, 54, 0.35);
@@ -2246,8 +2216,7 @@ QPushButton:disabled {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+        <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -2256,7 +2225,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                   
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -2281,7 +2250,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -2311,7 +2279,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -2329,7 +2296,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -2843,16 +2809,14 @@ QCheckBox::indicator:checked:disabled
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QLineEdit ==================== */
-QLineEdit
+         <string notr="true">QLineEdit
 {
 	font: 12pt &quot;Arial&quot;;
 	background-color: rgba(66, 79, 104, 1);
-	border: 1px solid transparent;   /* 与 SpinBox 保持一致，避免尺寸跳动 */
-	border-radius: 10px;
+	border: 1px solid transparent;   
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding-left: 0px;             /* 文本左侧留出舒适边距 */
+	padding-left: 0px;             
 	padding-right: 0px;
 	min-height: 20px;
 	selection-background-color: #3478e8;
@@ -2861,7 +2825,7 @@ QLineEdit
 
 QLineEdit:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);  
 	border: 1px solid #3478e8;
 
 }
@@ -2878,13 +2842,12 @@ QLineEdit:disabled
 	border: 1px solid transparent;
 }
 
-QLineEdit[echoMode=&quot;2&quot;]   /* 密码框也保持一致 */
+QLineEdit[echoMode=&quot;2&quot;]  
 {
 	lineedit-password-character: 9679;
 }
 
 
-/* ==================== QComboBox ==================== */
 QComboBox
 {
 	font: 12pt &quot;Arial&quot;;
@@ -2894,13 +2857,13 @@ QComboBox
 	font-size: 14px;
 	color: rgb(255, 255, 255);
 	padding-left: 10px;
-	padding-right: 0px;            /* 右侧给下拉箭头留空间 */
+	padding-right: 0px;        
 	min-height: 20px;
 }
 
 QComboBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);  
 	border: 1px solid #3478e8;}
 
 QComboBox:focus
@@ -2915,7 +2878,6 @@ QComboBox:disabled
 	border: 1px solid transparent;
 }
 
-/* 下拉箭头区域（右侧按钮） */
 QComboBox::drop-down
 {
 	subcontrol-origin: padding;
@@ -2937,7 +2899,6 @@ QComboBox::drop-down:pressed
 	background-color: rgb(204, 204, 204);
 }
 
-/* 下拉箭头图标 */
 QComboBox::down-arrow
 {
 	image: url(:/icons/down_arrow.svg);
@@ -2951,7 +2912,6 @@ QComboBox::down-arrow:disabled
 	opacity: 0.4;
 }
 
-/* 可编辑 ComboBox 的文本区 */
 QComboBox QAbstractItemView,
 QComboBox QLineEdit
 {
@@ -2962,7 +2922,6 @@ QComboBox QLineEdit
 	selection-color: #ffffff;
 }
 
-/* 下拉列表弹出框 */
 QComboBox QAbstractItemView
 {
 	background-color: rgba(66, 79, 104, 1);
@@ -2992,7 +2951,6 @@ QComboBox QAbstractItemView::item:selected
 	background-color: #3478e8;
 	color: #ffffff;
 }
-/* ==================== 深色滚动条（与 QPlainTextEdit 统一） ==================== */
 QComboBox QScrollBar:vertical {
     width:10px;
     background: rgba(35, 41, 54, 0.35);
@@ -3159,16 +3117,14 @@ QComboBox QScrollBar::add-page:horizontal {
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QLineEdit ==================== */
-QLineEdit
+         <string notr="true">QLineEdit
 {
 	font: 12pt &quot;Arial&quot;;
 	background-color: rgba(66, 79, 104, 1);
-	border: 1px solid transparent;   /* 与 SpinBox 保持一致，避免尺寸跳动 */
-	border-radius: 10px;
+	border: 1px solid transparent;   
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding-left: 0px;             /* 文本左侧留出舒适边距 */
+	padding-left: 0px;             
 	padding-right: 0px;
 	min-height: 20px;
 	selection-background-color: #3478e8;
@@ -3177,7 +3133,7 @@ QLineEdit
 
 QLineEdit:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);  
 	border: 1px solid #3478e8;
 
 }
@@ -3194,13 +3150,12 @@ QLineEdit:disabled
 	border: 1px solid transparent;
 }
 
-QLineEdit[echoMode=&quot;2&quot;]   /* 密码框也保持一致 */
+QLineEdit[echoMode=&quot;2&quot;]  
 {
 	lineedit-password-character: 9679;
 }
 
 
-/* ==================== QComboBox ==================== */
 QComboBox
 {
 	font: 12pt &quot;Arial&quot;;
@@ -3210,13 +3165,13 @@ QComboBox
 	font-size: 14px;
 	color: rgb(255, 255, 255);
 	padding-left: 10px;
-	padding-right: 0px;            /* 右侧给下拉箭头留空间 */
+	padding-right: 0px;        
 	min-height: 20px;
 }
 
 QComboBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);  
 	border: 1px solid #3478e8;}
 
 QComboBox:focus
@@ -3231,7 +3186,6 @@ QComboBox:disabled
 	border: 1px solid transparent;
 }
 
-/* 下拉箭头区域（右侧按钮） */
 QComboBox::drop-down
 {
 	subcontrol-origin: padding;
@@ -3253,7 +3207,6 @@ QComboBox::drop-down:pressed
 	background-color: rgb(204, 204, 204);
 }
 
-/* 下拉箭头图标 */
 QComboBox::down-arrow
 {
 	image: url(:/icons/down_arrow.svg);
@@ -3267,7 +3220,6 @@ QComboBox::down-arrow:disabled
 	opacity: 0.4;
 }
 
-/* 可编辑 ComboBox 的文本区 */
 QComboBox QAbstractItemView,
 QComboBox QLineEdit
 {
@@ -3278,7 +3230,6 @@ QComboBox QLineEdit
 	selection-color: #ffffff;
 }
 
-/* 下拉列表弹出框 */
 QComboBox QAbstractItemView
 {
 	background-color: rgba(66, 79, 104, 1);
@@ -3308,7 +3259,6 @@ QComboBox QAbstractItemView::item:selected
 	background-color: #3478e8;
 	color: #ffffff;
 }
-/* ==================== 深色滚动条（与 QPlainTextEdit 统一） ==================== */
 QComboBox QScrollBar:vertical {
     width:10px;
     background: rgba(35, 41, 54, 0.35);
@@ -3470,7 +3420,6 @@ height: 20px;
 QSpinBox:hover,
 QDoubleSpinBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
 	border: 1px solid #3478e8;
 }
 
@@ -4324,9 +4273,7 @@ QTextEdit QScrollBar::add-page:horizontal {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -4335,7 +4282,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                     
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -4361,7 +4308,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -4391,7 +4337,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -4409,7 +4354,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -4470,9 +4414,7 @@ QTextEdit QScrollBar::sub-page:horizontal
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -4481,7 +4423,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                     
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -4507,7 +4449,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -4537,7 +4478,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -4555,7 +4495,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -4622,16 +4561,15 @@ QTextEdit QScrollBar::sub-page:horizontal
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QLineEdit ==================== */
-QLineEdit
+         <string notr="true">QLineEdit
 {
 	font: 12pt &quot;Arial&quot;;
 	background-color: rgba(66, 79, 104, 1);
-	border: 1px solid transparent;   /* 与 SpinBox 保持一致，避免尺寸跳动 */
+	border: 1px solid transparent;   
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding-left: 0px;             /* 文本左侧留出舒适边距 */
+	padding-left: 0px;         
 	padding-right: 0px;
 	min-height: 20px;
 	selection-background-color: #3478e8;
@@ -4640,7 +4578,7 @@ QLineEdit
 
 QLineEdit:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);   
 	border: 1px solid #3478e8;
 
 }
@@ -4657,13 +4595,12 @@ QLineEdit:disabled
 	border: 1px solid transparent;
 }
 
-QLineEdit[echoMode=&quot;2&quot;]   /* 密码框也保持一致 */
+QLineEdit[echoMode=&quot;2&quot;] 
 {
 	lineedit-password-character: 9679;
 }
 
 
-/* ==================== QComboBox ==================== */
 QComboBox
 {
 	font: 12pt &quot;Arial&quot;;
@@ -4673,13 +4610,13 @@ QComboBox
 	font-size: 14px;
 	color: rgb(255, 255, 255);
 	padding-left: 15px;
-	padding-right: 0px;            /* 右侧给下拉箭头留空间 */
+	padding-right: 0px;           
 	min-height: 20px;
 }
 
 QComboBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);  
 	border: 1px solid #3478e8;}
 
 QComboBox:focus
@@ -4694,7 +4631,6 @@ QComboBox:disabled
 	border: 1px solid transparent;
 }
 
-/* 下拉箭头区域（右侧按钮） */
 QComboBox::drop-down
 {
 	subcontrol-origin: padding;
@@ -4716,7 +4652,6 @@ QComboBox::drop-down:pressed
 	background-color: rgb(204, 204, 204);
 }
 
-/* 下拉箭头图标 */
 QComboBox::down-arrow
 {
 	image: url(:/icons/down_arrow.svg);
@@ -4730,7 +4665,6 @@ QComboBox::down-arrow:disabled
 	opacity: 0.4;
 }
 
-/* 可编辑 ComboBox 的文本区 */
 QComboBox QAbstractItemView,
 QComboBox QLineEdit
 {
@@ -4741,7 +4675,6 @@ QComboBox QLineEdit
 	selection-color: #ffffff;
 }
 
-/* 下拉列表弹出框 */
 QComboBox QAbstractItemView
 {
 	background-color: rgba(66, 79, 104, 1);
@@ -4771,7 +4704,6 @@ QComboBox QAbstractItemView::item:selected
 	background-color: #3478e8;
 	color: #ffffff;
 }
-/* ==================== 深色滚动条（与 QPlainTextEdit 统一） ==================== */
 QComboBox QScrollBar:vertical {
     width:10px;
     background: rgba(35, 41, 54, 0.35);
@@ -4888,9 +4820,7 @@ QComboBox QScrollBar::add-page:horizontal {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -4899,7 +4829,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                     
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -4925,7 +4855,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -4955,7 +4884,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -4973,7 +4901,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -5031,9 +4958,7 @@ QTextEdit QScrollBar::sub-page:horizontal
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -5042,7 +4967,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                     
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -5068,7 +4993,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -5098,7 +5022,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -5116,7 +5039,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -5295,7 +5217,7 @@ height: 20px;
 QSpinBox:hover,
 QDoubleSpinBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115); 
 	border: 1px solid #3478e8;
 }
 
@@ -5441,8 +5363,7 @@ border-radius:10px;
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QListWidget ==================== */
-QListWidget
+         <string notr="true">QListWidget
 {
 	font: 12pt &quot;Arial&quot;;
 	font-size: 12px;
@@ -5450,9 +5371,9 @@ QListWidget
 	border: 1px solid transparent;
 	border-radius: 10px;
 	color: rgb(255, 255, 255);
-    padding: 4px;                     /* ← 0 改 4px */
-	outline: none;                    /* 去掉聚焦时的虚线框 */
-	selection-background-color: transparent;  /* item 选中样式由 ::item 单独控制 */
+    padding: 4px;                    
+	outline: none;                    
+	selection-background-color: transparent; 
 	selection-color: rgb(255, 255, 255);
 }
 
@@ -5476,45 +5397,28 @@ QListWidget:disabled
 }
 
 
-/* ==================== 每个 item ==================== */
 QListWidget::item
 {
 	background-color: transparent;
 	color: rgb(255, 255, 255);
-	border-radius: 6px;               /* 比外层圆角小一点更协调 */
+	border-radius: 6px;              
 	padding: 0px 0px;
 	margin: 0px 0px;
 	min-height: 20px;
 }
 
-/* 悬浮 */
 QListWidget::item:hover
 {
-	background-color: rgb(37, 52, 81);   /* 与你按钮悬浮一致 */
+	background-color: rgb(37, 52, 81);  
 }
 
-/* 选中 */
-/*QListWidget::item:selected
-{
-	background-color: #3478e8;
-	color: #ffffff;} */
 
-/* 选中 + 悬浮：略深一点的蓝 */
-/* QListWidget::item:selected:hover
-{
-	background-color: #2d6ad4;
-	color: #ffffff;
-} */
-
-/* 禁用 */
 QListWidget::item:disabled
 {
 	color: #9498a0;
 }
 
 
-/* ==================== item 里的复选框指示器 ==================== */
-/* listWidget_algorithms 每一项都带 checkbox，这里让它们和 QCheckBox 保持一致 */
 QListWidget::indicator
 {
 	width: 16px;
@@ -5533,7 +5437,7 @@ QListWidget::indicator:hover
 QListWidget::indicator:checked
 {
 	border: 1px solid #3478e8;
-	image: url(:/icons/check.svg);    /* 复用你刚编译进去的 check.svg */
+	image: url(:/icons/check.svg);    
 }
 
 QListWidget::indicator:checked:hover
@@ -5555,7 +5459,6 @@ QListWidget::indicator:disabled
 }
 
 
-/* ============ 纵向滚动条 ============ */
 QListWidget QScrollBar:vertical {
     width: 10px;
     background: rgba(35, 41, 54, 0.35);
@@ -5584,7 +5487,6 @@ QListWidget QScrollBar::add-page:vertical {
     background: none;
 }
 
-/* ============ 横向滚动条 ============ */
 QListWidget QScrollBar:horizontal {
     height: 10px;
     background: rgba(35, 41, 54, 0.35);
@@ -5814,7 +5716,7 @@ height: 20px;
 QSpinBox:hover,
 QDoubleSpinBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);   
 	border: 1px solid #3478e8;
 }
 
@@ -5963,7 +5865,7 @@ height: 20px;
 QSpinBox:hover,
 QDoubleSpinBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);  
 	border: 1px solid #3478e8;
 }
 
@@ -6111,7 +6013,7 @@ height: 20px;
 QSpinBox:hover,
 QDoubleSpinBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);   
 	border: 1px solid #3478e8;
 }
 
@@ -6524,7 +6426,7 @@ height: 20px;
 QSpinBox:hover,
 QDoubleSpinBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115); 
 	border: 1px solid #3478e8;
 }
 
@@ -6657,7 +6559,7 @@ height: 20px;
 QSpinBox:hover,
 QDoubleSpinBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115); 
 
 	border: 1px solid #3478e8;
 }
@@ -6812,7 +6714,7 @@ height: 20px;
 QSpinBox:hover,
 QDoubleSpinBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);   
 
 	border: 1px solid #3478e8;
 }
@@ -6959,16 +6861,15 @@ border-radius:10px;
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QLineEdit ==================== */
-QLineEdit
+         <string notr="true">QLineEdit
 {
 	font: 12pt &quot;Arial&quot;;
 	background-color: rgba(66, 79, 104, 1);
-	border: 1px solid transparent;   /* 与 SpinBox 保持一致，避免尺寸跳动 */
+	border: 1px solid transparent;   
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding-left: 0px;             /* 文本左侧留出舒适边距 */
+	padding-left: 0px;         
 	padding-right: 0px;
 	min-height: 20px;
 	selection-background-color: #3478e8;
@@ -6977,7 +6878,7 @@ QLineEdit
 
 QLineEdit:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);   
 	border: 1px solid #3478e8;
 
 }
@@ -6994,13 +6895,12 @@ QLineEdit:disabled
 	border: 1px solid transparent;
 }
 
-QLineEdit[echoMode=&quot;2&quot;]   /* 密码框也保持一致 */
+QLineEdit[echoMode=&quot;2&quot;] 
 {
 	lineedit-password-character: 9679;
 }
 
 
-/* ==================== QComboBox ==================== */
 QComboBox
 {
 	font: 12pt &quot;Arial&quot;;
@@ -7009,14 +6909,14 @@ QComboBox
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding-left: 0px;
-	padding-right: 0px;            /* 右侧给下拉箭头留空间 */
+	padding-left: 15px;
+	padding-right: 0px;           
 	min-height: 20px;
 }
 
 QComboBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);  
 	border: 1px solid #3478e8;}
 
 QComboBox:focus
@@ -7031,7 +6931,6 @@ QComboBox:disabled
 	border: 1px solid transparent;
 }
 
-/* 下拉箭头区域（右侧按钮） */
 QComboBox::drop-down
 {
 	subcontrol-origin: padding;
@@ -7053,7 +6952,6 @@ QComboBox::drop-down:pressed
 	background-color: rgb(204, 204, 204);
 }
 
-/* 下拉箭头图标 */
 QComboBox::down-arrow
 {
 	image: url(:/icons/down_arrow.svg);
@@ -7067,7 +6965,6 @@ QComboBox::down-arrow:disabled
 	opacity: 0.4;
 }
 
-/* 可编辑 ComboBox 的文本区 */
 QComboBox QAbstractItemView,
 QComboBox QLineEdit
 {
@@ -7078,7 +6975,6 @@ QComboBox QLineEdit
 	selection-color: #ffffff;
 }
 
-/* 下拉列表弹出框 */
 QComboBox QAbstractItemView
 {
 	background-color: rgba(66, 79, 104, 1);
@@ -7108,7 +7004,6 @@ QComboBox QAbstractItemView::item:selected
 	background-color: #3478e8;
 	color: #ffffff;
 }
-/* ==================== 深色滚动条（与 QPlainTextEdit 统一） ==================== */
 QComboBox QScrollBar:vertical {
     width:10px;
     background: rgba(35, 41, 54, 0.35);
@@ -7548,7 +7443,7 @@ height: 20px;
 QSpinBox:hover,
 QDoubleSpinBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);   
 	border: 1px solid #3478e8;
 }
 
@@ -7699,7 +7594,7 @@ height: 20px;
 QSpinBox:hover,
 QDoubleSpinBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);  
 	border: 1px solid #3478e8;
 }
 
@@ -8077,9 +7972,7 @@ QTextEdit QScrollBar::add-page:horizontal {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -8088,7 +7981,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                     
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -8114,7 +8007,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -8144,7 +8036,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -8162,7 +8053,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -8220,9 +8110,7 @@ QTextEdit QScrollBar::sub-page:horizontal
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -8231,7 +8119,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                     
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -8257,7 +8145,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -8287,7 +8174,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -8305,7 +8191,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -8363,9 +8248,7 @@ QTextEdit QScrollBar::sub-page:horizontal
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -8374,7 +8257,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                     
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -8400,7 +8283,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -8430,7 +8312,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -8448,7 +8329,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -8527,9 +8407,7 @@ QTextEdit QScrollBar::sub-page:horizontal
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -8538,7 +8416,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                     
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -8564,7 +8442,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -8594,7 +8471,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -8612,7 +8488,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -8817,16 +8692,15 @@ QPushButton:disabled {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">/* ==================== QLineEdit ==================== */
-QLineEdit
+        <string notr="true">QLineEdit
 {
 	font: 12pt &quot;Arial&quot;;
 	background-color: rgba(66, 79, 104, 1);
-	border: 1px solid transparent;   /* 与 SpinBox 保持一致，避免尺寸跳动 */
+	border: 1px solid transparent;  
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding-left: 0px;             /* 文本左侧留出舒适边距 */
+	padding-left: 0px;          
 	padding-right: 0px;
 	min-height: 20px;
 	selection-background-color: #3478e8;
@@ -8835,7 +8709,7 @@ QLineEdit
 
 QLineEdit:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);   
 	border: 1px solid #3478e8;
 
 }
@@ -8852,13 +8726,12 @@ QLineEdit:disabled
 	border: 1px solid transparent;
 }
 
-QLineEdit[echoMode=&quot;2&quot;]   /* 密码框也保持一致 */
+QLineEdit[echoMode=&quot;2&quot;]   
 {
 	lineedit-password-character: 9679;
 }
 
 
-/* ==================== QComboBox ==================== */
 QComboBox
 {
 	font: 12pt &quot;Arial&quot;;
@@ -8868,13 +8741,13 @@ QComboBox
 	font-size: 14px;
 	color: rgb(255, 255, 255);
 	padding-left: 0px;
-	padding-right: 0px;            /* 右侧给下拉箭头留空间 */
+	padding-right: 0px;       
 	min-height: 20px;
 }
 
 QComboBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);  
 	border: 1px solid #3478e8;}
 
 QComboBox:focus
@@ -8889,7 +8762,6 @@ QComboBox:disabled
 	border: 1px solid transparent;
 }
 
-/* 下拉箭头区域（右侧按钮） */
 QComboBox::drop-down
 {
 	subcontrol-origin: padding;
@@ -8911,7 +8783,6 @@ QComboBox::drop-down:pressed
 	background-color: rgb(204, 204, 204);
 }
 
-/* 下拉箭头图标 */
 QComboBox::down-arrow
 {
 	image: url(:/icons/down_arrow.svg);
@@ -8925,7 +8796,6 @@ QComboBox::down-arrow:disabled
 	opacity: 0.4;
 }
 
-/* 可编辑 ComboBox 的文本区 */
 QComboBox QAbstractItemView,
 QComboBox QLineEdit
 {
@@ -8936,7 +8806,6 @@ QComboBox QLineEdit
 	selection-color: #ffffff;
 }
 
-/* 下拉列表弹出框 */
 QComboBox QAbstractItemView
 {
 	background-color: rgba(66, 79, 104, 1);
@@ -8966,7 +8835,6 @@ QComboBox QAbstractItemView::item:selected
 	background-color: #3478e8;
 	color: #ffffff;
 }
-/* ==================== 深色滚动条（与 QPlainTextEdit 统一） ==================== */
 QComboBox QScrollBar:vertical {
     width:10px;
     background: rgba(35, 41, 54, 0.35);
@@ -9119,25 +8987,24 @@ QComboBox QScrollBar::add-page:horizontal {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">/* ==================== QCheckBox ==================== */
-QCheckBox
+        <string notr="true">QCheckBox
 {
 	font: 12pt &quot;Arial&quot;;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	spacing: 8px;                 /* 文字与小方框的间距 */
-	background: transparent;      /* 复选框本身不要背景，否则会是个大色块 */
+	spacing: 8px;               
+	background: transparent;    
 	padding: 2px 0px;
 }
 
 QCheckBox:hover
 {
-	color: #93C5FD;               /* 悬浮时文字变浅蓝 */
+	color: #93C5FD;              
 }
 
 QCheckBox:focus
 {
-	color: #3478e8;               /* 聚焦时文字变品牌蓝 */
+	color: #3478e8;               
 }
 
 QCheckBox:disabled
@@ -9146,12 +9013,11 @@ QCheckBox:disabled
 }
 
 
-/* ==================== 指示器（小方框） ==================== */
 QCheckBox::indicator
 {
 	width: 18px;
 	height: 18px;
-	border: 1px solid rgb(120, 138, 172);   /* 深色背景上用略亮边框才看得见 */
+	border: 1px solid rgb(120, 138, 172);   
 	border-radius: 5px;
 	background-color: rgba(66, 79, 104, 1);
 }
@@ -9167,7 +9033,6 @@ QCheckBox::indicator:pressed
 	background-color: rgb(37, 52, 81);
 }
 
-/* 勾选状态：填充蓝色 + 显示对勾图标 */
 QCheckBox::indicator:checked
 {
 	border: 1px solid #3478e8;
@@ -9186,7 +9051,6 @@ QCheckBox::indicator:checked:pressed
 	border: 1px solid #2159bd;
 }
 
-/* 半选状态（三态复选框用得到） */
 QCheckBox::indicator:indeterminate
 {
 	background-color: #3478e8;
@@ -9194,7 +9058,6 @@ QCheckBox::indicator:indeterminate
 	image: url(:/icons/indeterminate.svg);
 }
 
-/* 禁用状态 */
 QCheckBox::indicator:disabled
 {
 	background-color: #f6f7f9;
@@ -9230,25 +9093,24 @@ QCheckBox::indicator:checked:disabled
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">/* ==================== QCheckBox ==================== */
-QCheckBox
+        <string notr="true">QCheckBox
 {
 	font: 12pt &quot;Arial&quot;;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	spacing: 8px;                 /* 文字与小方框的间距 */
-	background: transparent;      /* 复选框本身不要背景，否则会是个大色块 */
+	spacing: 8px;               
+	background: transparent;    
 	padding: 2px 0px;
 }
 
 QCheckBox:hover
 {
-	color: #93C5FD;               /* 悬浮时文字变浅蓝 */
+	color: #93C5FD;              
 }
 
 QCheckBox:focus
 {
-	color: #3478e8;               /* 聚焦时文字变品牌蓝 */
+	color: #3478e8;               
 }
 
 QCheckBox:disabled
@@ -9257,12 +9119,11 @@ QCheckBox:disabled
 }
 
 
-/* ==================== 指示器（小方框） ==================== */
 QCheckBox::indicator
 {
 	width: 18px;
 	height: 18px;
-	border: 1px solid rgb(120, 138, 172);   /* 深色背景上用略亮边框才看得见 */
+	border: 1px solid rgb(120, 138, 172);   
 	border-radius: 5px;
 	background-color: rgba(66, 79, 104, 1);
 }
@@ -9278,7 +9139,6 @@ QCheckBox::indicator:pressed
 	background-color: rgb(37, 52, 81);
 }
 
-/* 勾选状态：填充蓝色 + 显示对勾图标 */
 QCheckBox::indicator:checked
 {
 	border: 1px solid #3478e8;
@@ -9297,15 +9157,13 @@ QCheckBox::indicator:checked:pressed
 	border: 1px solid #2159bd;
 }
 
-/* 半选状态（三态复选框用得到） */
 QCheckBox::indicator:indeterminate
 {
 	background-color: #3478e8;
 	border: 1px solid #3478e8;
-	image: url(:/icons/check.svg);
+	image: url(:/icons/indeterminate.svg);
 }
 
-/* 禁用状态 */
 QCheckBox::indicator:disabled
 {
 	background-color: #f6f7f9;
@@ -9360,7 +9218,7 @@ QCheckBox::indicator:checked:disabled
     background-color: rgba(35, 41, 54, 0.5);
     border: 1px solid transparent;
     border-radius: 18px;
-    padding: 4px;                        /* 图像四周留白，避免贴边 */
+    padding: 4px;                       
     font: 12pt &quot;Arial&quot;;
     font-size: 14px;
     color: rgb(255, 255, 255);
@@ -9375,7 +9233,6 @@ QGraphicsView {
     color: rgb(255, 255, 255);
 }
 
-/* ============ 纵向滚动条 ============ */
 QGraphicsView QScrollBar:vertical {
     width: 10px;
     background: rgba(35, 41, 54, 0.35);
@@ -9405,7 +9262,6 @@ QGraphicsView QScrollBar::add-page:vertical {
     background: none;
 }
 
-/* ============ 横向滚动条 ============ */
 QGraphicsView QScrollBar:horizontal {
     height: 10px;
     background: rgba(35, 41, 54, 0.35);
@@ -9443,7 +9299,7 @@ QGraphicsView QScrollBar::add-page:horizontal {
     background-color: rgba(35, 41, 54, 0.5);
     border: 1px solid transparent;
     border-radius: 18px;
-    padding: 4px;                        /* 图像四周留白，避免贴边 */
+    padding: 4px;                      
     font: 12pt &quot;Arial&quot;;
     font-size: 14px;
     color: rgb(255, 255, 255);
@@ -9458,7 +9314,6 @@ QGraphicsView {
     color: rgb(255, 255, 255);
 }
 
-/* ============ 纵向滚动条 ============ */
 QGraphicsView QScrollBar:vertical {
     width: 10px;
     background: rgba(35, 41, 54, 0.35);
@@ -9488,7 +9343,6 @@ QGraphicsView QScrollBar::add-page:vertical {
     background: none;
 }
 
-/* ============ 横向滚动条 ============ */
 QGraphicsView QScrollBar:horizontal {
     height: 10px;
     background: rgba(35, 41, 54, 0.35);
@@ -9577,9 +9431,7 @@ QGraphicsView QScrollBar::add-page:horizontal {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -9588,7 +9440,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                   
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -9608,13 +9460,13 @@ QTextEdit:focus
 QPlainTextEdit:disabled,
 QTextEdit:disabled
 {
-	background-color: #f6f7f9;
-	color: #9498a0;
-	border: 1px solid transparent;
+	background-color: rgba(66, 79, 104, 0.35);
+	color: #6b7280;
+	border: 1px solid rgba(120, 130, 150, 0.2);
+	selection-background-color: transparent;
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -9644,7 +9496,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -9662,7 +9513,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -9741,9 +9591,7 @@ QTextEdit QScrollBar::sub-page:horizontal
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -9752,7 +9600,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                   
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -9772,13 +9620,13 @@ QTextEdit:focus
 QPlainTextEdit:disabled,
 QTextEdit:disabled
 {
-	background-color: #f6f7f9;
-	color: #9498a0;
-	border: 1px solid transparent;
+	background-color: rgba(66, 79, 104, 0.35);
+	color: #6b7280;
+	border: 1px solid rgba(120, 130, 150, 0.2);
+	selection-background-color: transparent;
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -9808,7 +9656,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -9826,7 +9673,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -10043,16 +9889,15 @@ border-radius:10px;
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QLineEdit ==================== */
-QLineEdit
+         <string notr="true">QLineEdit
 {
 	font: 12pt &quot;Arial&quot;;
 	background-color: rgba(66, 79, 104, 1);
-	border: 1px solid transparent;   /* 与 SpinBox 保持一致，避免尺寸跳动 */
+	border: 1px solid transparent;  
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding-left: 0px;             /* 文本左侧留出舒适边距 */
+	padding-left: 0px;          
 	padding-right: 0px;
 	min-height: 20px;
 	selection-background-color: #3478e8;
@@ -10061,7 +9906,7 @@ QLineEdit
 
 QLineEdit:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);   
 	border: 1px solid #3478e8;
 
 }
@@ -10078,13 +9923,12 @@ QLineEdit:disabled
 	border: 1px solid transparent;
 }
 
-QLineEdit[echoMode=&quot;2&quot;]   /* 密码框也保持一致 */
+QLineEdit[echoMode=&quot;2&quot;]   
 {
 	lineedit-password-character: 9679;
 }
 
 
-/* ==================== QComboBox ==================== */
 QComboBox
 {
 	font: 12pt &quot;Arial&quot;;
@@ -10094,13 +9938,13 @@ QComboBox
 	font-size: 14px;
 	color: rgb(255, 255, 255);
 	padding-left: 0px;
-	padding-right: 0px;            /* 右侧给下拉箭头留空间 */
+	padding-right: 0px;       
 	min-height: 20px;
 }
 
 QComboBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);  
 	border: 1px solid #3478e8;}
 
 QComboBox:focus
@@ -10115,7 +9959,6 @@ QComboBox:disabled
 	border: 1px solid transparent;
 }
 
-/* 下拉箭头区域（右侧按钮） */
 QComboBox::drop-down
 {
 	subcontrol-origin: padding;
@@ -10137,7 +9980,6 @@ QComboBox::drop-down:pressed
 	background-color: rgb(204, 204, 204);
 }
 
-/* 下拉箭头图标 */
 QComboBox::down-arrow
 {
 	image: url(:/icons/down_arrow.svg);
@@ -10151,7 +9993,6 @@ QComboBox::down-arrow:disabled
 	opacity: 0.4;
 }
 
-/* 可编辑 ComboBox 的文本区 */
 QComboBox QAbstractItemView,
 QComboBox QLineEdit
 {
@@ -10162,7 +10003,6 @@ QComboBox QLineEdit
 	selection-color: #ffffff;
 }
 
-/* 下拉列表弹出框 */
 QComboBox QAbstractItemView
 {
 	background-color: rgba(66, 79, 104, 1);
@@ -10192,7 +10032,6 @@ QComboBox QAbstractItemView::item:selected
 	background-color: #3478e8;
 	color: #ffffff;
 }
-/* ==================== 深色滚动条（与 QPlainTextEdit 统一） ==================== */
 QComboBox QScrollBar:vertical {
     width:10px;
     background: rgba(35, 41, 54, 0.35);
@@ -10594,9 +10433,7 @@ border-radius:10px;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -10605,7 +10442,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                   
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -10625,13 +10462,13 @@ QTextEdit:focus
 QPlainTextEdit:disabled,
 QTextEdit:disabled
 {
-	background-color: #f6f7f9;
-	color: #9498a0;
-	border: 1px solid transparent;
+	background-color: rgba(66, 79, 104, 0.35);
+	color: #6b7280;
+	border: 1px solid rgba(120, 130, 150, 0.2);
+	selection-background-color: transparent;
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -10661,7 +10498,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -10679,7 +10515,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -10725,6 +10560,9 @@ QTextEdit QScrollBar::sub-page:horizontal
 {
 	background: transparent;
 }</string>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
         </property>
         <property name="plainText">
          <string/>
@@ -11216,25 +11054,24 @@ border-radius:10px;
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QCheckBox ==================== */
-QCheckBox
+         <string notr="true">QCheckBox
 {
 	font: 12pt &quot;Arial&quot;;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	spacing: 8px;                 /* 文字与小方框的间距 */
-	background: transparent;      /* 复选框本身不要背景，否则会是个大色块 */
+	spacing: 8px;               
+	background: transparent;    
 	padding: 2px 0px;
 }
 
 QCheckBox:hover
 {
-	color: #93C5FD;               /* 悬浮时文字变浅蓝 */
+	color: #93C5FD;              
 }
 
 QCheckBox:focus
 {
-	color: #3478e8;               /* 聚焦时文字变品牌蓝 */
+	color: #3478e8;               
 }
 
 QCheckBox:disabled
@@ -11243,12 +11080,11 @@ QCheckBox:disabled
 }
 
 
-/* ==================== 指示器（小方框） ==================== */
 QCheckBox::indicator
 {
 	width: 18px;
 	height: 18px;
-	border: 1px solid rgb(120, 138, 172);   /* 深色背景上用略亮边框才看得见 */
+	border: 1px solid rgb(120, 138, 172);   
 	border-radius: 5px;
 	background-color: rgba(66, 79, 104, 1);
 }
@@ -11264,7 +11100,6 @@ QCheckBox::indicator:pressed
 	background-color: rgb(37, 52, 81);
 }
 
-/* 勾选状态：填充蓝色 + 显示对勾图标 */
 QCheckBox::indicator:checked
 {
 	border: 1px solid #3478e8;
@@ -11283,7 +11118,6 @@ QCheckBox::indicator:checked:pressed
 	border: 1px solid #2159bd;
 }
 
-/* 半选状态（三态复选框用得到） */
 QCheckBox::indicator:indeterminate
 {
 	background-color: #3478e8;
@@ -11291,7 +11125,6 @@ QCheckBox::indicator:indeterminate
 	image: url(:/icons/indeterminate.svg);
 }
 
-/* 禁用状态 */
 QCheckBox::indicator:disabled
 {
 	background-color: #f6f7f9;
@@ -11330,25 +11163,24 @@ QCheckBox::indicator:checked:disabled
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QCheckBox ==================== */
-QCheckBox
+         <string notr="true">QCheckBox
 {
 	font: 12pt &quot;Arial&quot;;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	spacing: 8px;                 /* 文字与小方框的间距 */
-	background: transparent;      /* 复选框本身不要背景，否则会是个大色块 */
+	spacing: 8px;               
+	background: transparent;    
 	padding: 2px 0px;
 }
 
 QCheckBox:hover
 {
-	color: #93C5FD;               /* 悬浮时文字变浅蓝 */
+	color: #93C5FD;              
 }
 
 QCheckBox:focus
 {
-	color: #3478e8;               /* 聚焦时文字变品牌蓝 */
+	color: #3478e8;               
 }
 
 QCheckBox:disabled
@@ -11357,12 +11189,11 @@ QCheckBox:disabled
 }
 
 
-/* ==================== 指示器（小方框） ==================== */
 QCheckBox::indicator
 {
 	width: 18px;
 	height: 18px;
-	border: 1px solid rgb(120, 138, 172);   /* 深色背景上用略亮边框才看得见 */
+	border: 1px solid rgb(120, 138, 172);   
 	border-radius: 5px;
 	background-color: rgba(66, 79, 104, 1);
 }
@@ -11378,7 +11209,6 @@ QCheckBox::indicator:pressed
 	background-color: rgb(37, 52, 81);
 }
 
-/* 勾选状态：填充蓝色 + 显示对勾图标 */
 QCheckBox::indicator:checked
 {
 	border: 1px solid #3478e8;
@@ -11397,15 +11227,13 @@ QCheckBox::indicator:checked:pressed
 	border: 1px solid #2159bd;
 }
 
-/* 半选状态（三态复选框用得到） */
 QCheckBox::indicator:indeterminate
 {
 	background-color: #3478e8;
 	border: 1px solid #3478e8;
-	image: url(:/icons/check.svg);
+	image: url(:/icons/indeterminate.svg);
 }
 
-/* 禁用状态 */
 QCheckBox::indicator:disabled
 {
 	background-color: #f6f7f9;
@@ -11822,8 +11650,7 @@ QPushButton:disabled {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+        <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -11832,7 +11659,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                   
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -11857,7 +11684,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -11887,7 +11713,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -11905,7 +11730,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -12014,25 +11838,24 @@ QPushButton:disabled {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">/* ==================== QCheckBox ==================== */
-QCheckBox
+        <string notr="true">QCheckBox
 {
 	font: 12pt &quot;Arial&quot;;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	spacing: 8px;                 /* 文字与小方框的间距 */
-	background: transparent;      /* 复选框本身不要背景，否则会是个大色块 */
+	spacing: 8px;               
+	background: transparent;    
 	padding: 2px 0px;
 }
 
 QCheckBox:hover
 {
-	color: #93C5FD;               /* 悬浮时文字变浅蓝 */
+	color: #93C5FD;              
 }
 
 QCheckBox:focus
 {
-	color: #3478e8;               /* 聚焦时文字变品牌蓝 */
+	color: #3478e8;               
 }
 
 QCheckBox:disabled
@@ -12041,12 +11864,11 @@ QCheckBox:disabled
 }
 
 
-/* ==================== 指示器（小方框） ==================== */
 QCheckBox::indicator
 {
 	width: 18px;
 	height: 18px;
-	border: 1px solid rgb(120, 138, 172);   /* 深色背景上用略亮边框才看得见 */
+	border: 1px solid rgb(120, 138, 172);   
 	border-radius: 5px;
 	background-color: rgba(66, 79, 104, 1);
 }
@@ -12062,7 +11884,6 @@ QCheckBox::indicator:pressed
 	background-color: rgb(37, 52, 81);
 }
 
-/* 勾选状态：填充蓝色 + 显示对勾图标 */
 QCheckBox::indicator:checked
 {
 	border: 1px solid #3478e8;
@@ -12081,7 +11902,6 @@ QCheckBox::indicator:checked:pressed
 	border: 1px solid #2159bd;
 }
 
-/* 半选状态（三态复选框用得到） */
 QCheckBox::indicator:indeterminate
 {
 	background-color: #3478e8;
@@ -12089,7 +11909,6 @@ QCheckBox::indicator:indeterminate
 	image: url(:/icons/indeterminate.svg);
 }
 
-/* 禁用状态 */
 QCheckBox::indicator:disabled
 {
 	background-color: #f6f7f9;
@@ -12524,7 +12343,7 @@ QPushButton:disabled {
     background-color: rgba(35, 41, 54, 0.5);
     border: 1px solid transparent;
     border-radius: 18px;
-    padding: 4px;                        /* 图像四周留白，避免贴边 */
+    padding: 4px;                    
     font: 12pt &quot;Arial&quot;;
     font-size: 14px;
     color: rgb(255, 255, 255);
@@ -12539,7 +12358,6 @@ QGraphicsView {
     color: rgb(255, 255, 255);
 }
 
-/* ============ 纵向滚动条 ============ */
 QGraphicsView QScrollBar:vertical {
     width: 10px;
     background: rgba(35, 41, 54, 0.35);
@@ -12569,7 +12387,6 @@ QGraphicsView QScrollBar::add-page:vertical {
     background: none;
 }
 
-/* ============ 横向滚动条 ============ */
 QGraphicsView QScrollBar:horizontal {
     height: 10px;
     background: rgba(35, 41, 54, 0.35);
@@ -12716,9 +12533,7 @@ QGraphicsView QScrollBar::add-page:horizontal {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -12727,7 +12542,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                   
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -12754,7 +12569,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -12784,7 +12598,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -12802,7 +12615,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -12860,9 +12672,7 @@ QTextEdit QScrollBar::sub-page:horizontal
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+         <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -12871,7 +12681,7 @@ QTextEdit
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding: 6px 6px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 6px;                   
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -12898,7 +12708,6 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -12928,7 +12737,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -12946,7 +12754,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -13028,113 +12835,114 @@ QTextEdit QScrollBar::sub-page:horizontal
          <string notr="true">QSpinBox,
 QDoubleSpinBox
 {
-    font: 12pt &quot;Arial&quot;;
+	font: 12pt &quot;Arial&quot;;
     background-color: rgba(66, 79, 104, 1);
-    border: 0px solid #e2e4e8;
-    border-radius: 10px;
-    font-size: 14px;
-    color: rgb(255, 255, 255);
-    padding-right: 0px;
+border: 0px solid #e2e4e8;
+border-radius:10px;
+font-size:14px;
+color:;
+	color: rgb(255, 255, 255);
+padding-right:0px;
 }
-
 QSpinBox::up-button,
 QDoubleSpinBox::up-button
 {
-    subcontrol-origin: border;
-    subcontrol-position: top right;
-    border-radius: 10px;
-    width: 25px;
-    height: 20px;
+subcontrol-origin: border;
+subcontrol-position: top right;
+border-radius:10px;
+width: 25px;
+height: 20px;
 }
 
 QSpinBox::down-button,
 QDoubleSpinBox::down-button
 {
-    subcontrol-origin: border;
-    subcontrol-position: bottom right;
-    border-radius: 10px;
-    width: 25px;
-    height: 20px;
+subcontrol-origin: border;
+subcontrol-position: bottom right;
+border-radius:10px;
+width: 25px;
+height: 20px;
 }
 
 QSpinBox:hover,
 QDoubleSpinBox:hover
 {
-    border: 1px solid #3478e8;
+	border: 1px solid #3478e8;
 }
 
 QSpinBox:focus,
 QDoubleSpinBox:focus
 {
-    border: 1px solid #3478e8;
+border:1px solid #3478e8;
 }
-
-/* ★ 改这里 */
 QSpinBox:disabled,
 QDoubleSpinBox:disabled
 {
-    background-color: rgba(66, 79, 104, 0.35);
-    color: #6b7280;
-    border: 1px solid rgba(120, 130, 150, 0.2);
+background-color:#f6f7f9;
+color:#9498a0;
 }
 
 QSpinBox::up-arrow,
 QDoubleSpinBox::up-arrow
 {
-    image: url(:/icons/up_arrow.svg);
-    width: 18px;
-    height: 18px;
+image:url(:/icons/up_arrow.svg);
+width:18px;
+height:18px;
+
 }
 
 QSpinBox::down-arrow,
 QDoubleSpinBox::down-arrow
 {
-    image: url(:/icons/down_arrow.svg);
-    width: 18px;
-    height: 18px;
+image:url(:/icons/down_arrow.svg);
+width:18px;
+height:18px;
 }
 
 QSpinBox::up-button:hover,
 QDoubleSpinBox::up-button:hover
 {
-    background-color: rgb(37, 52, 81);
-    border-radius: 10px;
-}
+background-color:rgb(37, 52, 81);
+border-radius:10px;
 
+}
 QSpinBox::up-button:pressed,
 QDoubleSpinBox::up-button:pressed
 {
-    background-color: rgb(204, 204, 204);
-    border-radius: 10px;
-}
+background-color:rgb(204, 204, 204);
+border-radius:10px;
 
+}
 QSpinBox::up-button:disabled,
 QDoubleSpinBox::up-button:disabled
 {
-    background-color: transparent;
-    border-radius: 10px;
+background-color:transparent;
+border-radius:10px;
+
 }
 
 QSpinBox::down-button:hover,
 QDoubleSpinBox::down-button:hover
 {
-    background-color: rgb(37, 52, 81);
-    border-radius: 10px;
-}
+background-color:rgb(37, 52, 81);
+border-radius:10px;
 
+}
 QSpinBox::down-button:pressed,
 QDoubleSpinBox::down-button:pressed
 {
-    background-color: rgb(204, 204, 204);
-    border-radius: 10px;
-}
+background-color:rgb(204, 204, 204);
+border-radius:10px;
 
+}
 QSpinBox::down-button:disabled,
 QDoubleSpinBox::down-button:disabled
 {
-    background-color: transparent;
-    border-radius: 10px;
-}</string>
+background-color:transparent;
+border-radius:10px;
+
+}
+</string>
         </property>
         <property name="singleStep">
          <double>0.100000000000000</double>
@@ -13333,16 +13141,15 @@ border-radius:10px;
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QLineEdit ==================== */
-QLineEdit
+         <string notr="true">QLineEdit
 {
 	font: 12pt &quot;Arial&quot;;
 	background-color: rgba(66, 79, 104, 1);
-	border: 1px solid transparent;   /* 与 SpinBox 保持一致，避免尺寸跳动 */
+	border: 1px solid transparent;   
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding-left: 0px;             /* 文本左侧留出舒适边距 */
+	padding-left: 0px;            
 	padding-right: 0px;
 	min-height: 20px;
 	selection-background-color: #3478e8;
@@ -13351,7 +13158,7 @@ QLineEdit
 
 QLineEdit:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115); 
 	border: 1px solid #3478e8;
 
 }
@@ -13368,13 +13175,12 @@ QLineEdit:disabled
 	border: 1px solid transparent;
 }
 
-QLineEdit[echoMode=&quot;2&quot;]   /* 密码框也保持一致 */
+QLineEdit[echoMode=&quot;2&quot;]  
 {
 	lineedit-password-character: 9679;
 }
 
 
-/* ==================== QComboBox ==================== */
 QComboBox
 {
 	font: 12pt &quot;Arial&quot;;
@@ -13384,13 +13190,13 @@ QComboBox
 	font-size: 14px;
 	color: rgb(255, 255, 255);
 	padding-left: 0px;
-	padding-right: 0px;            /* 右侧给下拉箭头留空间 */
+	padding-right: 0px;           
 	min-height: 20px;
 }
 
 QComboBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);  
 	border: 1px solid #3478e8;}
 
 QComboBox:focus
@@ -13405,7 +13211,6 @@ QComboBox:disabled
 	border: 1px solid transparent;
 }
 
-/* 下拉箭头区域（右侧按钮） */
 QComboBox::drop-down
 {
 	subcontrol-origin: padding;
@@ -13427,7 +13232,6 @@ QComboBox::drop-down:pressed
 	background-color: rgb(204, 204, 204);
 }
 
-/* 下拉箭头图标 */
 QComboBox::down-arrow
 {
 	image: url(:/icons/down_arrow.svg);
@@ -13441,7 +13245,6 @@ QComboBox::down-arrow:disabled
 	opacity: 0.4;
 }
 
-/* 可编辑 ComboBox 的文本区 */
 QComboBox QAbstractItemView,
 QComboBox QLineEdit
 {
@@ -13452,7 +13255,6 @@ QComboBox QLineEdit
 	selection-color: #ffffff;
 }
 
-/* 下拉列表弹出框 */
 QComboBox QAbstractItemView
 {
 	background-color: rgba(66, 79, 104, 1);
@@ -13482,7 +13284,6 @@ QComboBox QAbstractItemView::item:selected
 	background-color: #3478e8;
 	color: #ffffff;
 }
-/* ==================== 深色滚动条（与 QPlainTextEdit 统一） ==================== */
 QComboBox QScrollBar:vertical {
     width:10px;
     background: rgba(35, 41, 54, 0.35);
@@ -13618,16 +13419,15 @@ QComboBox QScrollBar::add-page:horizontal {
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* ==================== QLineEdit ==================== */
-QLineEdit
+         <string notr="true">QLineEdit
 {
 	font: 12pt &quot;Arial&quot;;
 	background-color: rgba(66, 79, 104, 1);
-	border: 1px solid transparent;   /* 与 SpinBox 保持一致，避免尺寸跳动 */
+	border: 1px solid transparent;   
 	border-radius: 10px;
 	font-size: 14px;
 	color: rgb(255, 255, 255);
-	padding-left: 0px;             /* 文本左侧留出舒适边距 */
+	padding-left: 0px;            
 	padding-right: 0px;
 	min-height: 20px;
 	selection-background-color: #3478e8;
@@ -13636,7 +13436,7 @@ QLineEdit
 
 QLineEdit:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115); 
 	border: 1px solid #3478e8;
 
 }
@@ -13653,13 +13453,12 @@ QLineEdit:disabled
 	border: 1px solid transparent;
 }
 
-QLineEdit[echoMode=&quot;2&quot;]   /* 密码框也保持一致 */
+QLineEdit[echoMode=&quot;2&quot;]  
 {
 	lineedit-password-character: 9679;
 }
 
 
-/* ==================== QComboBox ==================== */
 QComboBox
 {
 	font: 12pt &quot;Arial&quot;;
@@ -13669,13 +13468,13 @@ QComboBox
 	font-size: 14px;
 	color: rgb(255, 255, 255);
 	padding-left: 0px;
-	padding-right: 0px;            /* 右侧给下拉箭头留空间 */
+	padding-right: 0px;           
 	min-height: 20px;
 }
 
 QComboBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115);  
 	border: 1px solid #3478e8;}
 
 QComboBox:focus
@@ -13690,7 +13489,6 @@ QComboBox:disabled
 	border: 1px solid transparent;
 }
 
-/* 下拉箭头区域（右侧按钮） */
 QComboBox::drop-down
 {
 	subcontrol-origin: padding;
@@ -13712,7 +13510,6 @@ QComboBox::drop-down:pressed
 	background-color: rgb(204, 204, 204);
 }
 
-/* 下拉箭头图标 */
 QComboBox::down-arrow
 {
 	image: url(:/icons/down_arrow.svg);
@@ -13726,7 +13523,6 @@ QComboBox::down-arrow:disabled
 	opacity: 0.4;
 }
 
-/* 可编辑 ComboBox 的文本区 */
 QComboBox QAbstractItemView,
 QComboBox QLineEdit
 {
@@ -13737,7 +13533,6 @@ QComboBox QLineEdit
 	selection-color: #ffffff;
 }
 
-/* 下拉列表弹出框 */
 QComboBox QAbstractItemView
 {
 	background-color: rgba(66, 79, 104, 1);
@@ -13767,7 +13562,6 @@ QComboBox QAbstractItemView::item:selected
 	background-color: #3478e8;
 	color: #ffffff;
 }
-/* ==================== 深色滚动条（与 QPlainTextEdit 统一） ==================== */
 QComboBox QScrollBar:vertical {
     width:10px;
     background: rgba(35, 41, 54, 0.35);
@@ -13886,11 +13680,7 @@ QComboBox QScrollBar::add-page:horizontal {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">/* ============================================================
-   QGraphicsView —— 白底风格
-   ============================================================ */
-
-QGraphicsView
+        <string notr="true">QGraphicsView
 {
     background-color: rgba(255, 255, 255, 1);
     border: 1px solid transparent;
@@ -13899,21 +13689,19 @@ QGraphicsView
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
 
-    /* 如果不想让滚动条离边框有 4px 空隙，就删掉这一行 */
     padding: 4px;
 
     font: 12pt &quot;Arial&quot;;
     font-size: 14px;
-    color: rgb(40, 40, 40);      /* 白底上用深色文字 */
+    color: rgb(40, 40, 40);   
 }
 
 
-/* ==================== 纵向滚动条 ==================== */
 
 QGraphicsView QScrollBar:vertical
 {
     width: 10px;
-    background: none;            /* 轨道透明 —— 只写一次 */
+    background: none;           
     border: none;
     border-radius: 4px;
     margin: 2px 0px;
@@ -13953,12 +13741,11 @@ QGraphicsView QScrollBar::add-page:vertical
 }
 
 
-/* ==================== 横向滚动条 ==================== */
 
 QGraphicsView QScrollBar:horizontal
 {
     height: 10px;
-    background: none;            /* 轨道透明 —— 只写一次 */
+    background: none;           
     border: none;
     border-radius: 4px;
     margin: 0px 2px;
@@ -13997,8 +13784,6 @@ QGraphicsView QScrollBar::add-page:horizontal
     border: none;
 }
 
-
-/* ==================== 滚动条交叉角 ==================== */
 
 QGraphicsView QScrollBar::corner
 {
@@ -14141,14 +13926,13 @@ border-radius:10px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 18px;
     border-bottom-left-radius: 18px;
-    padding: 4px;                        /* 图像四周留白，避免贴边 */
+    padding: 4px;                      
     font: 12pt &quot;Arial&quot;;
     font-size: 14px;
     color: rgb(255, 255, 255);
 }
 
 
-/* ============ 纵向滚动条 ============ */
 QGraphicsView QScrollBar:vertical {
     width: 10px;
     background: rgba(35, 41, 54, 0.35);
@@ -14178,7 +13962,6 @@ QGraphicsView QScrollBar::add-page:vertical {
     background: none;
 }
 
-/* ============ 横向滚动条 ============ */
 QGraphicsView QScrollBar:horizontal {
     height: 10px;
     background: rgba(35, 41, 54, 0.35);
@@ -14227,14 +14010,13 @@ QGraphicsView QScrollBar::add-page:horizontal {
     border-top-right-radius: 18px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
-    padding: 4px;                        /* 图像四周留白，避免贴边 */
+    padding: 4px;                       
     font: 12pt &quot;Arial&quot;;
     font-size: 14px;
     color: rgb(255, 255, 255);
 }
 
 
-/* ============ 纵向滚动条 ============ */
 QGraphicsView QScrollBar:vertical {
     width: 10px;
     background: rgba(35, 41, 54, 0.35);
@@ -14264,7 +14046,6 @@ QGraphicsView QScrollBar::add-page:vertical {
     background: none;
 }
 
-/* ============ 横向滚动条 ============ */
 QGraphicsView QScrollBar:horizontal {
     height: 10px;
     background: rgba(35, 41, 54, 0.35);
@@ -14340,7 +14121,7 @@ height: 20px;
 QSpinBox:hover,
 QDoubleSpinBox:hover
 {
-	background-color: rgb(74, 88, 115);   /* 悬浮时略微变亮 */
+	background-color: rgb(74, 88, 115); 
 	border: 1px solid #3478e8;
 }
 
@@ -14500,9 +14281,7 @@ border-radius:10px;
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">/* ==================== QPlainTextEdit / QTextEdit ==================== */
-/* ==================== QPlainTextEdit / QTextEdit ==================== */
-QPlainTextEdit,
+       <string notr="true">QPlainTextEdit,
 QTextEdit
 {
 	font: 12pt &quot;Arial&quot;;
@@ -14510,7 +14289,7 @@ QTextEdit
 	border: 1px solid transparent;
 	border-radius: 10px;
 	color: rgb(255, 255, 255);
-	padding: 6px 20px;                     /* 文本四周留出舒适内边距 */
+	padding: 6px 20px;                   
 	selection-background-color: #3478e8;
 	selection-color: #ffffff;
 }
@@ -14536,7 +14315,7 @@ QTextEdit:disabled
 }
 
 
-/* ==================== 深色滚动条（与整体风格统一） ==================== */
+
 QPlainTextEdit QScrollBar:vertical,
 QTextEdit QScrollBar:vertical
 {
@@ -14566,7 +14345,6 @@ QTextEdit QScrollBar::handle:vertical:pressed
 	background: #3478e8;
 }
 
-/* 去掉上下箭头和页步进区域（现代风格通常隐藏） */
 QPlainTextEdit QScrollBar::add-line:vertical,
 QPlainTextEdit QScrollBar::sub-line:vertical,
 QTextEdit QScrollBar::add-line:vertical,
@@ -14584,7 +14362,6 @@ QTextEdit QScrollBar::sub-page:vertical
 	background: transparent;
 }
 
-/* 水平滚动条 */
 QPlainTextEdit QScrollBar:horizontal,
 QTextEdit QScrollBar:horizontal
 {
@@ -14653,15 +14430,15 @@ QTextEdit QScrollBar::sub-page:horizontal
       <property name="styleSheet">
        <string notr="true">QProgressBar {
     border: 1px solid rgba(200, 200, 200, 0.6);
-    border-radius: 6px;       /* 馃敽缂╁皬鍦嗚锛屽拰楂樺害鍖归厤 */
+    border-radius: 6px;       
     background-color: rgba(236, 238, 242, 0.45);
     min-height:14px;
     text-align:center;
 }
 QProgressBar::chunk {
-    border-radius:6px;        /* 馃敽鍜屽灞備繚鎸佷竴鑷?*/
+    border-radius:6px;       
     background-color:#638fc9;
-    min-width:6px;            /* 馃敽鏀规垚寰堝皬鐨勬渶灏忓搴︼紝淇濊瘉鑳界敾鍑哄渾瑙掞紝涓嶄細杩囧害鎾戝紑 */
+    min-width:6px;            
 }
 </string>
       </property>

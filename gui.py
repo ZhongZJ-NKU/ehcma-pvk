@@ -1689,7 +1689,7 @@ class MainWindow(QMainWindow):
                 pass
 
         loader = QUiLoader()
-        ui_path = os.path.join(self.get_base_dir(), "mygui.ui")
+        ui_path = os.path.join(self.get_base_dir(), "ehcma_main.ui")
         ui_file = QFile(ui_path)
         if not ui_file.open(QIODevice.ReadOnly):
             print(f"Cannot open UI file: {ui_path}")
@@ -1699,7 +1699,7 @@ class MainWindow(QMainWindow):
 
         if self.central_widget is None:
             print(f"ERROR: QUiLoader failed to load {ui_path}.")
-            print("Check that the file exists, the XML is valid, and res_rc is compiled.")
+            print("Check that the file exists, the XML is valid, and res_rcc is compiled.")
             sys.exit(-1)
 
         self.setWindowTitle("Explainable Hierarchy-Constrained Multimodal Agent")
@@ -1916,7 +1916,7 @@ class MainWindow(QMainWindow):
         self.lbl_mol_counts = self._find_child_widget(QLabel, "lbl_mol_counts")
         self.lbl_mol_counts.setText(
             "<span style='color:#98c379;'>Valid - 0</span> "
-            "<span style='color:#ffffff;'> | </span> "
+            " | "
             "<span style='color:#e06c75;'>Invalid - 0</span>"
         )
 
@@ -2254,14 +2254,15 @@ class MainWindow(QMainWindow):
         self.agent_process = None
         self.is_agent_reply_finished = False
 
-        self.txt_agent_api_key = self._find_child_widget(QPlainTextEdit, "txt_agent_api_key")
-        self.txt_agent_api_key.setPlainText(
-            "sk-ws-H.PMDPMML.KJ59.MEUCIQCmXbQGKysMNF_Tw63RINGTT8TJYc-HjfkLnkcJKALvEgIgaPz-sGfwfo7xkR7Plt7GQ1YkdPPqBarIQwo-5HWpxos"
+        self.txt_agent_api_key = self._bind_agent_text_field(
+            "txt_agent_api_key", "AGENT_API_KEY", "Please enter Agent API Key"
         )
-        self.txt_agent_base_url = self._find_child_widget(QPlainTextEdit, "txt_agent_base_url")
-        self.txt_agent_base_url.setPlainText("https://maas.qianwenaiapi.com/compatible-mode/v1")
-        self.txt_agent_model_name = self._find_child_widget(QPlainTextEdit, "txt_agent_model_name")
-        self.txt_agent_model_name.setPlainText("qwen3.8-flash")
+        self.txt_agent_base_url = self._bind_agent_text_field(
+            "txt_agent_base_url", "AGENT_BASE_URL", "Enter Agent base URL"
+        )
+        self.txt_agent_model_name = self._bind_agent_text_field(
+            "txt_agent_model_name", "AGENT_MODEL_NAME", "Enter model"
+        )
 
         self.dsp_agent_temperature = self._find_child_widget(
             QDoubleSpinBox, "dsp_agent_temperature"
@@ -2445,15 +2446,11 @@ class MainWindow(QMainWindow):
         self.gvw_pred_waterfall.setScene(self.waterfall_scene)
 
         self.txt_pred_sam_1 = self._find_child_widget(QPlainTextEdit, "txt_pred_sam_1")
-        self.txt_pred_sam_1.setPlainText(
-            "C12N(C3C=CC(SC)=CC=3C=1C=C(C=C2)SC)C1C=CC(P(=O)(O)O)=CC=1"
-        )
+        self.txt_pred_sam_1.setPlaceholderText("Enter SMILES string for SAM 1...")
         self.txt_pred_sam_1.textChanged.connect(self.on_sam_smiles_changed)
 
         self.txt_pred_sam_2 = self._find_child_widget(QPlainTextEdit, "txt_pred_sam_2")
-        self.txt_pred_sam_2.setPlainText(
-            "C12N(C3C=CC(SC)=CC=3C=1C=C(C=C2)SC)C1C=CC(P(=O)(O)O)=CC=1"
-        )
+        self.txt_pred_sam_2.setPlaceholderText("Enter SMILES string for SAM 2...")
         self.txt_pred_sam_2.textChanged.connect(self.on_sam_smiles_changed)
 
         self.dsp_pred_bandgap = self._find_child_widget(QDoubleSpinBox, "dsp_pred_bandgap")
@@ -3165,7 +3162,7 @@ class MainWindow(QMainWindow):
     def on_agent_queue_tick(self) -> None:
         """Drain up to 'MAX_MSGS' messages from the agent message queue.
 
-        Bounded draining prevents a runaway producer from monopolising the
+        Bounded draining prevents a runaway producer from monopolizing the
         event loop; if the queue still has items the slot re-schedules itself.
         """
         MAX_MSGS = 60
@@ -3310,12 +3307,7 @@ class MainWindow(QMainWindow):
         self.stk_main.setCurrentWidget(target)
 
     def append_state_log(self, state: str) -> None:
-        """Append one timestamped, colour-coded line to the state log.
-
-        A line is only appended when the (state, message) pair differs from
-        the previous append; this keeps the log readable during long streaming
-        operations where 'set_state' is invoked many times.
-        """
+        """Append one timestamped, color-coded line to the state log."""
         log_edit = getattr(self, "txt_state_log", None)
         if log_edit is None:
             return
@@ -3403,12 +3395,7 @@ class MainWindow(QMainWindow):
         icon_size: Optional[QSize] = None,
         enabled: bool = True,
     ) -> None:
-        """Reconfigure a push button in one atomic step.
-
-        The previous callback is disconnected before the new one is connected
-        because some buttons are reused as both START and STOP; otherwise the
-        'clicked' signal would accumulate handlers.
-        """
+        """Reconfigure a push button in one atomic step."""
         if callback is not None:
             try:
                 button.clicked.disconnect()
@@ -3963,7 +3950,7 @@ class MainWindow(QMainWindow):
     def stop_mol_calc(self) -> None:
         """Terminate the MolCalc child and all of its ORCA descendants.
 
-        ORCA spawns its own subprocesses that do not honour 'terminate' on
+        ORCA spawns its own subprocesses that do not honor 'terminate' on
         the direct child, so the tree is walked via 'psutil' and each
         descendant killed explicitly.
         """
@@ -4650,12 +4637,11 @@ class MainWindow(QMainWindow):
         n_ready = len(required_set & available) if available else 0
         n_missing = len(required_set) - n_ready
         miss_color = "#98c379" if n_missing == 0 else "#e06c75"
-
         parts = [
-            f"<span style='color:#a8d0ff;'>Exp</span>&nbsp;{n_exp}",
-            f"<span style='color:#a8d0ff;'>SMILES</span>&nbsp;{n_smiles}",
-            f"<span style='color:#98c379;'>Ready</span>&nbsp;{n_ready}",
-            f"<span style='color:{miss_color};'>Missing</span>&nbsp;{n_missing}",
+            f"<span style=\"color:#a8d0ff;\">Exp</span> <span style=\"color:#a8d0ff; font-weight:bold;\">{n_exp}</span>",
+            f"<span style=\"color:#a8d0ff;\">SMILES</span> <span style=\"color:#a8d0ff; font-weight:bold;\">{n_smiles}</span>",
+            f"<span style=\"color:#98c379;\">Ready</span> <span style=\"color:#98c379; font-weight:bold;\">{n_ready}</span>",
+            f"<span style=\"color:{miss_color};\">Missing</span> <span style=\"color:{miss_color}; font-weight:bold;\">{n_missing}</span>",
         ]
         label.setText(" &nbsp;|&nbsp; ".join(parts))
 
@@ -5032,18 +5018,18 @@ class MainWindow(QMainWindow):
     # ==================================================================
 
     def load_acin_substructure_weights(self) -> Optional[pd.DataFrame]:
-        """Load 'attention_weights.csv' into a DataFrame, if it exists."""
+        """Load 'acin_weights.csv' into a DataFrame, if it exists."""
         try:
-            df = pd.read_csv("attention_weights.csv").set_index("krfp_idx")
+            df = pd.read_csv("acin_weights.csv").set_index("krfp_idx")
         except FileNotFoundError:
             self.txt_status_message.setPlainText(
-                "Warning: attention_weights.csv not found — please run DL training first."
+                "Warning: acin_weights.csv not found — please run DL training first."
             )
             self.set_state("warning")
             return None
         except Exception as exc:
             self.txt_status_message.setPlainText(
-                f"Warning: failed to read attention_weights.csv — {exc}"
+                f"Warning: failed to read acin_weights.csv — {exc}"
             )
             self.set_state("warning")
             return None
@@ -5158,12 +5144,7 @@ class MainWindow(QMainWindow):
         self.spectrum_fig = None
 
     def ensure_spectrum_canvas(self) -> bool:
-        """Create the matplotlib spectrum canvas on first use.
-
-        The .ui placeholder 'QGraphicsView' is replaced in-place by a
-        'QFrame' hosting 'FigureCanvasQTAgg'; subsequent calls reuse the
-        frame and only reset the plot contents.
-        """
+        """Create the matplotlib spectrum canvas on first use."""
         if self.load_acin_substructure_weights() is None:
             return False
         if self.spectrum_frame is not None:
@@ -5757,9 +5738,9 @@ class MainWindow(QMainWindow):
             ),
             ("temp", True, "Temporary files             (temp/)"),
             (
-                "attention_weights",
+                "acin_weights",
                 False,
-                "Attention weights           (attention_weights.csv)",
+                "ACIN weights                (acin_weights.csv)",
             ),
         ]
 
@@ -5878,8 +5859,8 @@ class MainWindow(QMainWindow):
                         remove_path(os.path.join(plots_root, name))
             elif key == "shap_values":
                 remove_path(os.path.join(base_dir, "plots", "shap_values"))
-            elif key == "attention_weights":
-                remove_path(os.path.join(base_dir, "attention_weights.csv"))
+            elif key == "acin_weights":
+                remove_path(os.path.join(base_dir, "acin_weights.csv"))
             else:
                 remove_path(os.path.join(base_dir, key))
 
@@ -6042,6 +6023,16 @@ class MainWindow(QMainWindow):
             print(f"WARNING: Cannot find child widget: {name}.")
         return widget
 
+    def _bind_agent_text_field(self, widget_name: str, env_var: str, placeholder: str) -> QPlainTextEdit:
+        """Seed a named agent text field from 'env_var' and apply its placeholder."""
+        widget = self._find_child_widget(QPlainTextEdit, widget_name)
+        if widget is None:
+            raise RuntimeError(f"UI widget not found: {widget_name}")
+        widget.setPlainText(os.getenv(env_var, "").strip())
+        widget.setPlaceholderText(placeholder)
+        widget.setLineWrapMode(QPlainTextEdit.NoWrap)
+        return widget
+
     @staticmethod
     def get_base_dir() -> str:
         """Return the runtime base directory, honouring PyInstaller freeze."""
@@ -6125,7 +6116,7 @@ def dl_worker(base_dir, message_queue, x_train, x_test, y_train, y_test,
     Determinism is enforced at four levels (Python, NumPy, PyTorch CPU, PyTorch
     CUDA) and cuDNN is pinned to deterministic algorithms.  This costs some
     throughput but makes the attention weights written to
-    'attention_weights.csv' reproducible across runs.
+    'acin_weights.csv' reproducible across runs.
     """
     random.seed(random_state)
     np.random.seed(random_state)
@@ -6174,7 +6165,7 @@ def rank_worker(top_k, substructure_dir, show_index_text, show_weight_text,
     """Render the top-K KRFP substructures as RDKit PNGs."""
     from acin_analysis import render_top_k_substructures
 
-    weights = pd.read_csv("attention_weights.csv")
+    weights = pd.read_csv("acin_weights.csv")
     render_top_k_substructures(
         weights,
         substructure_dir,

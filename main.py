@@ -1,7 +1,4 @@
-﻿# =============================================================================
-# main.py
-# =============================================================================
-"""Co-SAM analysis pipeline — entry point.
+﻿"""Co-SAM analysis pipeline — entry point.
 
 Available stages:
   mol_calc           : ORCA + Multiwfn + RDKit molecular-property computation.
@@ -85,11 +82,11 @@ RENDER_ONLY = False
 
 # Stage toggles for "all"
 LAUNCH_GUI = False
-SKIP_MOLCALC = True
-SKIP_ML = True
-SKIP_EVAL = True
-SKIP_PREDICT = True
-SKIP_ACIN = True
+SKIP_MOLCALC = False
+SKIP_ML = False
+SKIP_EVAL = False
+SKIP_PREDICT = False
+SKIP_ACIN = False
 SKIP_FEAT_ABLATION = False
 SKIP_ATTN_ABLATION = False
 # ===========================================================================
@@ -104,7 +101,7 @@ BENCH_DIR = PROJECT_ROOT / "benchmark"
 
 ML_INPUTS_CSV = PROJECT_ROOT / "ml_inputs.csv"
 DL_INPUTS_CSV = PROJECT_ROOT / "dl_inputs.csv"
-ATTN_CSV = PROJECT_ROOT / "attention_weights.csv"
+ATTN_CSV = PROJECT_ROOT / "acin_weights.csv"
 
 RANDOM_STATE = SEED
 TRAIN_SIZE = 0.75
@@ -189,7 +186,7 @@ def run_mol_calc(method: str, basis: str, ncore: int, cpu_usage: float,
     _log("mol_calc", "starting")
     ensure_dirs(MOL_DIR)
     smiles = pd.read_csv(PROJECT_ROOT / "smiles.csv")
-    experiment = pd.read_csv(PROJECT_ROOT / "experiment_dataset.csv")
+    experiment = pd.read_csv(PROJECT_ROOT / "exp_data.csv")
     calc = MolCalc(
         smiles=smiles, method=method, basis_set=basis,
         ncore=ncore, cpu_usage=cpu_usage, multithreading=multithreading,
@@ -306,14 +303,58 @@ def run_acin(device: str, epochs: int, early_stop: int, lr: float,
 # ---------------------------------------------------------------------------
 # GUI & Dispatch
 # ---------------------------------------------------------------------------
+def _ensure_qt_resources() -> None:
+    """Compile res.qrc -> res_rc.py when missing or stale."""
+    import shutil
+    import subprocess
+
+    base = Path(__file__).resolve().parent
+    qrc = base / "res.qrc"
+    py = base / "res_rcc.py"
+    if not qrc.exists():
+        return
+    if py.exists() and py.stat().st_mtime >= qrc.stat().st_mtime:
+        return
+
+    rcc = shutil.which("pyside6-rcc")
+
+    if not rcc:
+        for name in ("pyside6-rcc.exe", "pyside6-rcc"):
+            candidate = Path(sys.executable).parent / "Scripts" / name
+            if candidate.is_file():
+                rcc = str(candidate)
+                break
+
+    if not rcc:
+        import PySide6
+        for name in ("rcc.exe", "rcc"):
+            candidate = Path(PySide6.__file__).parent / name
+            if candidate.is_file():
+                rcc = str(candidate)
+                break
+
+    if not rcc:
+        raise FileNotFoundError(
+            "Cannot find pyside6-rcc. Run 'pyside6-rcc --version' in the same "
+            "terminal to verify the tool is installed and on PATH."
+        )
+
+    print(f"[build] compiling {qrc.name} -> {py.name}")
+    subprocess.run(
+        [rcc, str(qrc), "-o", str(py)],
+        check=True,
+    )
+
 def launch_gui() -> None:
+    _ensure_qt_resources()
+
     import PySide6
     pyside_dir = os.path.dirname(PySide6.__file__)
     os.environ.setdefault("QT_QPA_PLATFORM_PLUGIN_PATH",
                           os.path.join(pyside_dir, "plugins", "platforms"))
     os.environ.setdefault("QT_PLUGIN_PATH", os.path.join(pyside_dir, "plugins"))
 
-    import res_rc  # noqa: F401  (registers Qt resources)
+    import res_rcc  # noqa: F401  (registers Qt resources)
     from PySide6.QtWidgets import QApplication
     from gui import MainWindow
 
@@ -322,6 +363,7 @@ def launch_gui() -> None:
     app = QApplication.instance()
     if app is None:
         app = QApplication(sys.argv)
+    app.setStyle("Fusion")
 
     window = MainWindow()
     window.show()
