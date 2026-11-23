@@ -1,0 +1,64 @@
+# =============================================================================
+#  Explainable Hierarchy-Constrained Multimodal Agent
+#  Rational design of hybrid buried interfaces for perovskite solar cells
+#  Python 3.9 | Windows x64 | CUDA 11.8
+#
+#  conda env create -f environment.yml
+#  conda activate cosam-agent
+# =============================================================================
+
+name: cosam-agent
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.9
+
+  # Numerical core (conda builds share a single MKL ABI)
+  - numpy=1.20.3
+  - pandas=1.4.0
+  - scipy=1.10.1
+  - scikit-learn=1.6.1
+  - joblib=1.5.2
+
+  # Plotting & statistics
+  - matplotlib=3.7.0
+  - seaborn=0.11.2
+
+  # Cheminformatics
+  - rdkit=2024.3.3
+  - pillow=8.4.0
+
+  # System utilities
+  - psutil=5.8.0
+  - tqdm=4.67.1
+
+  - pip
+  - pip:
+      - scikit-fingerprints==1.13.1      # Klekota-Roth fingerprints
+      - shap==0.49.1                     # descriptor attribution (CatBoost)
+      - pygam==0.10.1                    # GAM trend fits
+      - xgboost==2.1.4
+      - lightgbm==4.6.0
+      - catboost==1.2.8                  # primary PCE regressor
+      - bayesian-optimization>=1.4,<2    # AutoML hyper-parameter search
+      - PySide6==6.10.3                  # GUI shell
+      - markdown==3.9
+      - pygetwindow==0.0.9
+      - GPUtil==1.4.0
+      - BlurWindow==1.2.1; sys_platform == "win32"
+      - openai==2.48.0                   # MSEC reasoning module
+      - httpx==0.28.1
+
+      # CUDA 11.8 wheels live only on the PyTorch index; keep last.
+      - --extra-index-url https://download.pytorch.org/whl/cu118
+      - torch==2.6.0+cu118
+      - torchvision==0.21.0+cu118
+      - torchaudio==2.6.0+cu118
+
+# Caps ORCA parallelism when psutil over-reports cores (containers / VMs).
+# See mol_calc._plan_parallelism.
+variables:
+  MOLCALC_MAX_CORES: "8"
